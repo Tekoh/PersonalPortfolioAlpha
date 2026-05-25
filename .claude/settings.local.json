@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(cd \"C:\\\\Users\\\\Mahd\\\\Desktop\\\\Website\"; $job = Start-Job -ScriptBlock { Set-Location \"C:\\\\Users\\\\Mahd\\\\Desktop\\\\Website\"; & \"C:\\\\Program Files\\\\nodejs\\\\npx.cmd\" vite --port 5173 2>&1 }; $job.Id)"
+    ]
+  }
+}
