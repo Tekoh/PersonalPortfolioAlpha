@@ -315,7 +315,6 @@ export default function App() {
     <>
       <style>
         {`
-          @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;400;700&display=swap');
           body { background-color: #0a0a0a; overflow-x: hidden; }
           ::selection { background: #00ff41; color: #000; }
           ::-webkit-scrollbar { width: 8px; }
