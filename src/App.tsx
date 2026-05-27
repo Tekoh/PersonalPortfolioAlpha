@@ -27,10 +27,10 @@ const BOOT_SEQUENCE = [
 const SKILLS = [
   { name: "Python & JavaScript", level: 90, icon: <Code size={16} /> },
   { name: "SQL, MySQL & SQLite", level: 85, icon: <Database size={16} /> },
-  { name: "Linux & Kali Env", level: 80, icon: <Terminal size={16} /> },
-  { name: "Virtual Machines (Local)", level: 85, icon: <Server size={16} /> },
+  { name: "Linux & Kali Linux", level: 80, icon: <Terminal size={16} /> },
+  { name: "Virtualisation & Hypervisors", level: 85, icon: <Server size={16} /> },
   { name: "Cloud Infrastructure & VM Deployment", level: 80, icon: <Cloud size={16} /> },
-  { name: "Threat Hunting & Vuln Analysis", level: 75, icon: <Shield size={16} /> },
+  { name: "Threat Hunting & Vulnerability Analysis", level: 75, icon: <Shield size={16} /> },
 ];
 
 const PROJECTS = [
@@ -39,7 +39,7 @@ const PROJECTS = [
     title: "Project: UNI_SHARE",
     type: "Vulnerability Remediation",
     status: "SECURED",
-    desc: "A vulnerable application that underwent rigorous threat detection and vulnerability assessment, resulting in the remediation of 60+ security flaws.",
+    desc: "Conducted a full security audit on a deliberately vulnerable application — identifying and remediating 60+ flaws including injection vulnerabilities, broken authentication, and misconfigured access controls.",
     url: "https://github.com/Tekoh/UniShareApplication.git"
   },
   {
@@ -47,7 +47,7 @@ const PROJECTS = [
     title: "Project: ST_ALPHONSUS",
     type: "Backend Sys / Database",
     status: "ACTIVE",
-    desc: "A robust school management tool engineered with a focus on backend architecture, utilizing MySQL for secure and structured data processing.",
+    desc: "A full-featured school management system built with a focus on database integrity and backend architecture, using MySQL for structured, relational data management.",
     url: "https://github.com/Tekoh/StAlphonsusManagementTool.git"
   },
   {
@@ -55,7 +55,7 @@ const PROJECTS = [
     title: "Project: D.ROID_SECURE",
     type: "E-Commerce Framework",
     status: "PUBLIC",
-    desc: "An e-commerce web application developed to solidify full-stack web development skills and practice secure deployment methodologies.",
+    desc: "A full-stack e-commerce platform applying real-world web development practices — including secure session handling, input validation, and structured deployment workflows.",
     url: "https://github.com/Tekoh/D.RoidSecure-Website.git"
   },
 ];
@@ -189,7 +189,7 @@ const HeroSection = () => {
                 <span className="animate-pulse text-green-500">_</span>
             </h1>
             <p className="max-w-xl text-green-400/80 text-lg md:text-xl font-light">
-                Cybersecurity student at UA92 analyzing threats and deploying resilient cloud infrastructure.
+                Aspiring security engineer at UA92 — focused on threat analysis, vulnerability research, and building resilient cloud infrastructure.
             </p>
         </section>
     );
@@ -206,17 +206,17 @@ const AboutSection = () => (
                 <div className="absolute top-0 right-0 p-2 opacity-50"><Lock size={16} /></div>
                 <ul className="space-y-4 text-green-300">
                     <li className="flex justify-between"><span>[ USER ]</span> <span className="text-white">Mahd Raihan</span></li>
-                    <li className="flex justify-between"><span>[ ROLE ]</span> <span className="text-white">CyberSecurity Student</span></li>
+                    <li className="flex justify-between"><span>[ ROLE ]</span> <span className="text-white">Cybersecurity & Cloud Security Student</span></li>
                     <li className="flex justify-between"><span>[ LOCATION ]</span> <span className="text-white">Encrypted Node (UK)</span></li>
                     <li className="flex justify-between"><span>[ UPTIME ]</span> <span className="text-white">99.998%</span></li>
                 </ul>
             </div>
             <div className="text-green-400/80 leading-relaxed text-sm md:text-base border-l-2 border-green-500/50 pl-6">
                 <p className="mb-4">
-                    Currently a student at UA92, deeply interested in cloud and cybersecurity. I execute code with surgical precision and focus on bridging the gap between robust backend systems and secure networking.
+                    I'm a Cybersecurity student at UA92 with a strong interest in cloud security and offensive security techniques. I enjoy building systems, understanding how they break, and hardening them against real-world threats.
                 </p>
                 <p>
-                    My objective is to construct resilient digital fortresses, hunt for threats, and deploy scalable cloud environments.
+                    My focus sits at the intersection of backend engineering and cloud infrastructure — where secure design decisions have the most impact.
                 </p>
             </div>
         </div>
@@ -292,7 +292,7 @@ const ContactSection = () => (
             <h2 className="text-2xl font-bold tracking-widest">ENCRYPTED_CHANNEL</h2>
         </div>
         <p className="text-sm text-green-400/80 mb-8 text-center max-w-md font-light">
-            Direct node to my secure inbox. Ready to discuss security assessments, cloud infrastructure deployments, or general networking.
+            Whether you want to talk security research, cloud infrastructure, or just connect — my inbox is always open.
         </p>
         <a
             href="mailto:mahdraihan@outlook.com"
