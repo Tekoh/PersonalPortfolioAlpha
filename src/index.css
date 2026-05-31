@@ -6,35 +6,27 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Only hide cursor on pointer (mouse) devices, never on touch */
 @media (pointer: fine) {
-  * {
-    cursor: none !important;
-  }
+  * { cursor: none !important; }
 }
 
 body {
-  background-color: #edf2fb;
-  color: #1e1b4b;
+  background-color: #0b1120;
+  color: #f1f5f9;
   font-family: 'Inter', system-ui, sans-serif;
   overflow-x: hidden;
 }
 
 ::selection {
-  background: #c4b5fd;
-  color: #1e1b4b;
+  background: rgba(56, 189, 248, 0.30);
+  color: #f1f5f9;
 }
 
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #edf2fb;
-}
-
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0b1120; }
 ::-webkit-scrollbar-thumb {
-  background: #c4b5fd;
+  background: #1b2a47;
   border-radius: 999px;
-  border: 2px solid #edf2fb;
+  border: 1px solid rgba(56,189,248,0.15);
 }
+::-webkit-scrollbar-thumb:hover { background: #38bdf8; }

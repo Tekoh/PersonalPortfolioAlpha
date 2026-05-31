@@ -6,50 +6,43 @@ const isTouchDevice = () =>
 
 export const CustomCursor = () => {
   const ringRef = useRef<HTMLDivElement>(null);
-  const dotRef = useRef<HTMLDivElement>(null);
-  const [isHovering, setIsHovering] = useState(false);
-  const [isTouch] = useState(() => isTouchDevice());
+  const dotRef  = useRef<HTMLDivElement>(null);
+  const [hovering, setHovering] = useState(false);
+  const [isTouch]  = useState(() => isTouchDevice());
 
   useEffect(() => {
     if (isTouch) return;
-
     const ring = ringRef.current;
-    const dot = dotRef.current;
+    const dot  = dotRef.current;
     if (!ring || !dot) return;
 
-    let mouseX = 0;
-    let mouseY = 0;
-    let ringX = 0;
-    let ringY = 0;
+    let mx = 0, my = 0, rx = 0, ry = 0;
     let rafId: number;
 
-    const onMouseMove = (e: MouseEvent) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-      dot.style.left = `${mouseX}px`;
-      dot.style.top = `${mouseY}px`;
+    const onMove = (e: MouseEvent) => {
+      mx = e.clientX; my = e.clientY;
+      dot.style.left = `${mx}px`;
+      dot.style.top  = `${my}px`;
     };
 
-    const onMouseOver = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      setIsHovering(!!target.closest('a, button, [data-cursor-hover]'));
+    const onOver = (e: MouseEvent) => {
+      setHovering(!!(e.target as HTMLElement).closest('a, button, [data-hover]'));
     };
 
-    const animate = () => {
-      ringX += (mouseX - ringX) * 0.13;
-      ringY += (mouseY - ringY) * 0.13;
-      ring.style.left = `${ringX}px`;
-      ring.style.top = `${ringY}px`;
-      rafId = requestAnimationFrame(animate);
+    const loop = () => {
+      rx += (mx - rx) * 0.13;
+      ry += (my - ry) * 0.13;
+      ring.style.left = `${rx}px`;
+      ring.style.top  = `${ry}px`;
+      rafId = requestAnimationFrame(loop);
     };
 
-    window.addEventListener('mousemove', onMouseMove);
-    window.addEventListener('mouseover', onMouseOver);
-    rafId = requestAnimationFrame(animate);
-
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('mouseover', onOver);
+    rafId = requestAnimationFrame(loop);
     return () => {
-      window.removeEventListener('mousemove', onMouseMove);
-      window.removeEventListener('mouseover', onMouseOver);
+      window.removeEventListener('mousemove', onMove);
+      window.removeEventListener('mouseover', onOver);
       cancelAnimationFrame(rafId);
     };
   }, [isTouch]);
@@ -60,21 +53,24 @@ export const CustomCursor = () => {
     <>
       <div
         ref={ringRef}
-        className="fixed pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-violet-400"
+        className="fixed pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 rounded-full"
         style={{
-          width: isHovering ? '48px' : '32px',
-          height: isHovering ? '48px' : '32px',
-          backgroundColor: isHovering ? 'rgba(167,139,250,0.15)' : 'transparent',
-          transition: 'width 0.2s ease, height 0.2s ease, background-color 0.2s ease, border-color 0.2s ease',
-          borderColor: isHovering ? '#7c3aed' : '#a78bfa',
+          width:           hovering ? '44px' : '28px',
+          height:          hovering ? '44px' : '28px',
+          border:          hovering ? '2px solid #38bdf8' : '1.5px solid rgba(56,189,248,0.60)',
+          backgroundColor: hovering ? 'rgba(56,189,248,0.10)' : 'transparent',
+          boxShadow:       hovering ? '0 0 14px rgba(56,189,248,0.35)' : 'none',
+          transition: 'width 0.18s ease, height 0.18s ease, background-color 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease',
         }}
       />
       <div
         ref={dotRef}
-        className="fixed pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 rounded-full bg-violet-600"
+        className="fixed pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 rounded-full"
         style={{
-          width: isHovering ? '6px' : '5px',
-          height: isHovering ? '6px' : '5px',
+          width:  hovering ? '5px' : '4px',
+          height: hovering ? '5px' : '4px',
+          background: '#38bdf8',
+          boxShadow: '0 0 6px rgba(56,189,248,0.8)',
           transition: 'width 0.15s ease, height 0.15s ease',
         }}
       />
