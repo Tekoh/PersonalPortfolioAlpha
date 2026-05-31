@@ -416,7 +416,7 @@ export default function App() {
             className="relative z-10 py-8 text-center text-sm border-t"
             style={{ color: '#94a3b8', borderColor: 'rgba(226,232,240,0.8)' }}
           >
-            © {new Date().getFullYear()} Mahd Raihan — Built with React &amp; Tailwind CSS
+            © {new Date().getFullYear()} Mahd Raihan
           </footer>
         </motion.div>
       )}
