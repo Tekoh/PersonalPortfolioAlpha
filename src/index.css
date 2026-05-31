@@ -1,3 +1,40 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Only hide cursor on pointer (mouse) devices, never on touch */
+@media (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
+}
+
+body {
+  background-color: #edf2fb;
+  color: #1e1b4b;
+  font-family: 'Inter', system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: #c4b5fd;
+  color: #1e1b4b;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #edf2fb;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c4b5fd;
+  border-radius: 999px;
+  border: 2px solid #edf2fb;
+}
